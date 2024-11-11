@@ -134,5 +134,18 @@ Class Arrays {
 		System.out.println("Dlina table1: " + table1.length);
 		System.out.println("Dlina nums4: " + nums4.length);
 		System.out.println("Dlina nums4: " + nums4.length);
-	}
+		}
+		
+		//Cikl for -each
+		System.out.println();
+		int[] nums5 = {1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12};
+		int sum = 0;
+
+		for(int x : nums) {
+			System.out.println("Znazheniye: " + x);
+			sum += x;
+			if(x1 == 5)
+				break;
+		}
+		System.out.println("Summa vseh elementov massiva nums5: " + sum);
 }
