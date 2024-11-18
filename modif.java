@@ -15,12 +15,12 @@ class AccessDemo {
 		return alpha;
 	}
 }
-class FailSofrArray {
+class FailSoftArray {
 	private int[] a;
 	private int errval;
 	public int length;
 
-	public FailSoftArray(int size, int errval) {
+	public FailSoftArray(int size, int errv) {
 		a = new int[size];
 		errval = errv;
 		length = size;
