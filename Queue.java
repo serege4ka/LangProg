@@ -1,6 +1,6 @@
 class Queue {
-	char[] q;
-	int putloc, getloc;
+	private char[] q;
+	private int putloc, getloc;
 	Queue(int size) {
 		q = new char[size];
 		putloc = getloc = 0;
@@ -51,6 +51,10 @@ class QDemo {
 			if(ch != (char) 0)
 				System.out.print(ch);
 		}
+		System.out.println();
+		//Попытка доступа к закрытым переменным класса Queue
+		//bigQ.q[3] = 343;
+		//bigQ.putloc = 3;
 	
 	}
 }
