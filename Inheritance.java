@@ -41,6 +41,9 @@ class TwoDShape {
         return name;
     }
     */
+    double area() {
+	    System.out.println("метод должен быть переопределен");
+		    return 0.0;
 }
 class Triangle extends TwoDShape {
     String style;
@@ -66,7 +69,17 @@ class Triangle extends TwoDShape {
     }
     */
 }
-
+class ColorTriangle extends Triangle {
+	String color;
+	ColorTriangle(String c, String s, double w, double h) {
+		super(s, w, h); //Вызов конструктора Triangle();
+		color = c;
+		name = "Цветной треугольник";
+	}
+	void showColor() { 
+		System.out.println("Цвет: " + color);
+	}
+}
 class Rectangle extends TwoDShape {
     Rectangle(String o, double w, double h) {
         super(w, h); // Вызов конструктора суперкласса
@@ -88,7 +101,7 @@ class Interihance {
     public static void main(String[] args) {
         TwoDShape fig1 = new TwoDShape(20.0, 30.0);
         Triangle t1 = new Triangle("Закрашенный", 4.5, 7.0);
-        Triangle t2 = new Triangle("Контурный", 3.5, 8.0);
+        ColorTriangle t2 = new ColorTriangle("Синий", "Контурный", 3.5, 8.0);
         Rectangle r1 = new Rectangle("Сплошная линия", 5.0, 5.0);
         Rectangle r2 = new Rectangle("Пунктирная линия", 5.0, 7.0);
         System.out.println("Информация об объектах");
@@ -102,7 +115,30 @@ class Interihance {
         System.out.println("r1 " + r1.name);
         System.out.println("Квадрат: " + r1.isSquare());
         System.out.println("Площадь: " + r1.area());
-        
+        //Совместимость переменных родственных классов
+	//Переменна супер класса может ссылаться на объект
+	System.out.println();
+	System.out.println("Ширина двумерной фигуры fig1: " + fig1.getWidth());
+	//При указании на объект суперкласса выполняется метод суперкласса
+	fig1.area();
+
+	fig1 = t1;
+	System.out.println("Ширина треугольника, на который ссылется fig1: " + fig1.getWidth());
+	//При указании на объект подкласса "Треугольник" выполняется вычисление площади для треугольника
+	System.out.println("Площадь треугольника: " + fig1.area());
+
+	fig1 = r1; 
+	System.out.println("Ширина прямоугольника, на который ссылается: " + fig1.getWidth());
+	//При указании на объект подкласса "Прямоугольник" выполняется вычисление площади для прямоугольника
+	System.out.println("Площадь прямоугольника: " + fig1.area());
+
+	fig1 = t2;
+	t2.showColor();
+	System.out.println("Площадь цветного треугольникка: " + fig1.area());
+
+	// Доступ к членам подкласса для ссылочных переменных закрыт: 
+	// System.out.println(fig1.style);
+
         // Проверка доступности переменных
         /*
         System.out.println(fig1.wigth);
